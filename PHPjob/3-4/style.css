@@ -1,0 +1,14 @@
+@charset "UTF-8";
+body {
+    font-family: serif;
+    color: #fff;
+    text-align: center;
+    background: rgb(128, 128, 128);
+}
+h1 {
+    padding-top: 80px;
+    border-bottom: 3px solid #fff;
+}
+.form {
+    padding-top: 20px;
+}
