@@ -43,7 +43,7 @@ if (isset($_POST["signUp"])) {
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
             // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
-            echo $e->getMessage();
+            //echo $e->getMessage();
         }
     } elseif ($_POST["password"] != $_POST["password2"]) {
         $errorMessage = 'パスワードに誤りがあります。';
