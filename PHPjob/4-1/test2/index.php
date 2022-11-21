@@ -1,15 +1,15 @@
 <?php
 require 'dbconnect.php';
 // セッション開始
-session_start();
-include_once("dbInfo.php");
+// session_start();
+// include_once("dbInfo.php");
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
 
 // セッション開始
-session_start();
+// session_start();
 
 // ログインボタンが押された場合
 if (isset($_POST["signUp"])) {
