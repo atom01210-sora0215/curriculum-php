@@ -2,7 +2,7 @@
 session_start();
 require_once("pdo.php");
 require_once("getData.php");
-$pdo = db_connect();
+$pdo = connect();
 
 ?>
 
@@ -22,43 +22,36 @@ $pdo = db_connect();
 		<h1><img src="1599315827_logo.png" alt=""></h1>
 		<div class="headerWrap">
             <?php
-                $stmt = $pdo->prepare('select * from users');
-                $stmt->execute();
-                foreach ($stmt as $row) {
-                    $LN= $row['last_name'];
-                    $FN= $row['first_name'];
-                    $LL= $row['last_login'];
-                }
+                // getDataクラスをインスタンス化
+                $data = new getData();
+                // getData内のgetUserData関数を実行し、変数に代入
+                $user_data = $data->getUserData();
             ?>
-			<p class="greeting">ようこそ<?= print h(' '.$LN.$FN.' '); ?>さん</p>
-			<p class="logindate">最終ログイン日：<?=  print h($LL); ?></p>
+			<p class="greeting">ようこそ<?= h(' '.$user_data['last_name'].$user_data['first_name'].' '); ?>さん</p>
+			<p class="logindate">最終ログイン日：<?= $user_data['last_login']; ?></p>
 		</div>
 	</header>
 	<main>
         <table>
             <?php
-                try {
-                    $stmt = $pdo->prepare('select posts.id, title, category.detail, comment, created from posts left join category on posts.category_no=category.id order by posts.id desc');
-                    $stmt->execute();
-                } catch(PDOException $Exception) {
-                    die('Error: ' . $e->getMessage());
+                $data = new getData();
+                $post_data = $data->getPostData();
+                $stmt = $pdo->prepare('select posts.id, title, category.detail, comment, created from posts left join category on posts.category_no=category.id order by posts.id desc');
+                $stmt->execute();
+                for ($i=0; $i<1; $i++){
+                    $fieldname = pg_field_name($post_data, $i);
                 }
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
             <tr>
-                <?php
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        // echo $row['id'] . '、' . $row['title'] . '、' . $row['detail'] . '、' . $row['comment'] . '、' . $row['created'];
-                        // echo '<br />';
-
-                ?>
-                <th></th>
+                <th><?= h($fieldname); ?></th>
                 <td><?= h($row['id']); ?></td>
                 <td><?= h($row['title']); ?></td>
                 <td><?= h($row['detail']); ?></td>
                 <td><?= h($row['comment']); ?></td>
                 <td><?= h($row['created']); ?></td>
-                <?php }?>
 			</tr>
+            <?php }?>
 		</table>
 	</main>
 	<footer>

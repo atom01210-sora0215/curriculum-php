@@ -1,7 +1,6 @@
 <?php
 require_once("pdo.php");
 
-
 class getData{
 
     public $pdo;
@@ -9,7 +8,7 @@ class getData{
 
     //コンストラクタ
     function __construct()  {
-        $this->pdo = db_connect();
+        $this->pdo = connect();
     }
 
     /**
@@ -19,13 +18,11 @@ class getData{
      * @return array $users_data ユーザ情報
      */
     public function getUserData(){
-    $getusers_sql = "SELECT * FROM users limit 1";
-    $users_data = $this->pdo->query($getusers_sql)->fetch(PDO::FETCH_ASSOC);
-    return $users_data;
-}
-
-
-
+        $getusers_sql = "SELECT * FROM users limit 1";
+        $users_data = $this->pdo->query($getusers_sql)->fetch(PDO::FETCH_ASSOC);
+        return $users_data;
+    }
+    
     /**
      * 記事情報の取得
      *
@@ -37,7 +34,4 @@ class getData{
         $post_data = $this->pdo->query($getposts_sql);
         return $post_data;
     }
-
-
 }
-

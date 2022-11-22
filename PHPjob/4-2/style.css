@@ -94,17 +94,17 @@ header h1 img {
     background: #00ffff;
 }
 main {
-    margin: 20px auto;
+    margin: 10px auto;
 }
 table {
-    display: flex;
-    flex-wrap: wrap;
+    margin: auto;
 }
 table th{
     background: #87cddb;
 }
 table td{
     background: #e0ffff;
+    border: 2px solid #fff;
 }
 footer {
     width: 1000px;
