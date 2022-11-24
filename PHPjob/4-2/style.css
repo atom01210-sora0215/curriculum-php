@@ -101,9 +101,14 @@ table {
 }
 table th{
     background: #87cddb;
+    font-weight: 700;
 }
 table td{
     background: #e0ffff;
+}
+table th,td {
+    padding: 5px;
+    font-size: .9em;;
     border: 2px solid #fff;
 }
 footer {

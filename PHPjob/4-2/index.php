@@ -21,37 +21,57 @@ $pdo = connect();
 	<header>
 		<h1><img src="1599315827_logo.png" alt=""></h1>
 		<div class="headerWrap">
-            <?php
+			<?php
                 // getDataクラスをインスタンス化
                 $data = new getData();
-                // getData内のgetUserData関数を実行し、変数に代入
-                $user_data = $data->getUserData();
-            ?>
-			<p class="greeting">ようこそ<?= h(' '.$user_data['last_name'].$user_data['first_name'].' '); ?>さん</p>
-			<p class="logindate">最終ログイン日：<?= $user_data['last_login']; ?></p>
+				// getData内のgetUserData関数を実行し、変数に代入
+				$user_data = $data->getUserData();
+			?>
+			<p class="greeting">
+				ようこそ<?= h(' '.$user_data['last_name'].$user_data['first_name'].' '); ?>さん
+			</p>
+			<p class="logindate">
+				最終ログイン日：<?= $user_data['last_login']; ?>
+			</p>
 		</div>
 	</header>
 	<main>
-        <table>
-            <?php
-                $data = new getData();
-                $post_data = $data->getPostData();
-                $stmt = $pdo->prepare('select posts.id, title, category.detail, comment, created from posts left join category on posts.category_no=category.id order by posts.id desc');
-                $stmt->execute();
-                for ($i=0; $i<1; $i++){
-                    $fieldname = pg_field_name($post_data, $i);
-                }
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            ?>
-            <tr>
-                <th><?= h($fieldname); ?></th>
-                <td><?= h($row['id']); ?></td>
-                <td><?= h($row['title']); ?></td>
-                <td><?= h($row['detail']); ?></td>
-                <td><?= h($row['comment']); ?></td>
-                <td><?= h($row['created']); ?></td>
+		<table>
+			<tr>
+				<?php
+					$getcolumns_sql = "show columns from posts";
+					$stmt = $pdo -> query($getcolumns_sql);
+					$col = $stmt->fetchAll(PDO::FETCH_COLUMN);
+					$colname = array(
+						'id' => '記事ID',
+						'title' => 'タイトル',
+						'category_no' => 'カテゴリ',
+						'comment' => '本文',
+						'created' => '投稿日'
+					);
+					foreach($colname as $key){
+						echo '<th>'.$key.'</th>';
+					}
+				?>
 			</tr>
-            <?php }?>
+			<tr>
+				<?php
+						$data = new getData();
+						$post_data = $data->getPostData();
+						while ($row = $post_data->fetch(PDO::FETCH_ASSOC)) {
+				?>
+				<td><?= h($row['id']); ?></td>
+				<td><?= h($row['title']); ?></td>
+				<td><?php switch ($row['category_no']){
+					case '1': print '食事';
+					break;
+					case '2': print '旅行';
+					break;
+					default: echo 'その他';}?></td>		
+				<td><?= h($row['comment']); ?></td>
+				<td><?= h($row['created']); ?></td>
+			</tr>
+			<?php }?>
 		</table>
 	</main>
 	<footer>
