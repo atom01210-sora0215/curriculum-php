@@ -4,6 +4,11 @@ require_once("pdo.php");
 require_once("getData.php");
 $pdo = connect();
 
+// getDataクラスをインスタンス化
+$data = new getData();
+// getData内のgetUserData関数を実行し、変数に代入
+$user_data = $data->getUserData();
+$post_data = $data->getPostData();
 ?>
 
 <!DOCTYPE html>
@@ -21,12 +26,6 @@ $pdo = connect();
 	<header>
 		<h1><img src="1599315827_logo.png" alt=""></h1>
 		<div class="headerWrap">
-			<?php
-                // getDataクラスをインスタンス化
-                $data = new getData();
-				// getData内のgetUserData関数を実行し、変数に代入
-				$user_data = $data->getUserData();
-			?>
 			<p class="greeting">
 				ようこそ<?= h(' '.$user_data['last_name'].$user_data['first_name'].' '); ?>さん
 			</p>
@@ -38,38 +37,27 @@ $pdo = connect();
 	<main>
 		<table>
 			<tr>
-				<?php
-					$getcolumns_sql = "show columns from posts";
-					$stmt = $pdo -> query($getcolumns_sql);
-					$col = $stmt->fetchAll(PDO::FETCH_COLUMN);
-					$colname = array(
-						'id' => '記事ID',
-						'title' => 'タイトル',
-						'category_no' => 'カテゴリ',
-						'comment' => '本文',
-						'created' => '投稿日'
-					);
-					foreach($colname as $key){
-						echo '<th>'.$key.'</th>';
-					}
-				?>
+				<th>記事ID</th>
+				<th>タイトル</th>
+				<th>カテゴリ</th>
+				<th>本文</th>
+				<th>投稿日</th>
 			</tr>
 			<tr>
-				<?php
-						$data = new getData();
-						$post_data = $data->getPostData();
-						while ($row = $post_data->fetch(PDO::FETCH_ASSOC)) {
-				?>
+				<?php while ($row = $post_data->fetch(PDO::FETCH_ASSOC)) { ?>
 				<td><?= h($row['id']); ?></td>
 				<td><?= h($row['title']); ?></td>
-				<td><?php switch ($row['category_no']){
-					case '1': print '食事';
-					break;
-					case '2': print '旅行';
-					break;
-					default: echo 'その他';}?></td>		
-				<td><?= h($row['comment']); ?></td>
-				<td><?= h($row['created']); ?></td>
+				<td><?php switch ($row['category_no']) {
+				    case '1': print '食事';
+				        break;
+				    case '2': print '旅行';
+				        break;
+				    default: echo 'その他';
+				}?></td>
+				<td><?= h($row['comment']); ?>
+				</td>
+				<td><?= h($row['created']); ?>
+				</td>
 			</tr>
 			<?php }?>
 		</table>
