@@ -4,13 +4,6 @@ require_once('function.php');
 check_user_logged_in();
 
 if (!empty($_POST['title']) && !empty($_POST["date"]) && $_POST["stock"] !== '選択してください') {
-    if (empty($_POST['title'])) {
-        $resultMsg = 'タイトルを入力してください';
-    } elseif (empty($_POST["date"])) {
-        $resultMsg='発売日を入力してください';
-    } elseif ($_POST["stock"] === '選択してください') {
-        $resultMsg='在庫数を選択してください';
-    }
     $resultMsg = null;
     $title = $_POST['title'];
     $date = $_POST['date'];
@@ -32,6 +25,14 @@ if (!empty($_POST['title']) && !empty($_POST["date"]) && $_POST["stock"] !== '�
     //     header('Location:registration.php');
     //     exit;
     //     }
+} else {
+    if (empty($_POST['title'])) {
+        $resultMsg = 'タイトルを入力してください';
+    } elseif (empty($_POST["date"])) {
+        $resultMsg='発売日を入力してください';
+    } elseif ($_POST["stock"] === '選択してください') {
+        $resultMsg='在庫数を選択してください';
+    }
 }
 
 ?>
