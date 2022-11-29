@@ -13,7 +13,7 @@ if (!empty($_POST['title']) && !empty($_POST["date"]) && $_POST["stock"] !== '�
         $sql = 'INSERT INTO books (title, date, stock) values (:title, :date, :stock)';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':title', $title);
-        $stmt->bindValue(":date", date("Y/m/d", time($date)));
+        $stmt->bindValue(":date", $date);
         $stmt->bindValue(':stock', (int)$stock, PDO::PARAM_INT);
         $stmt->execute();
         $resultMsg = '登録が完了しました';

@@ -3,9 +3,6 @@ require_once('db_connect.php');
 require_once('function.php');
 check_user_logged_in();
 
-// $data = new getData();
-// $sql = 'SELECT * FROM books';
-// $stmt = $data->selectData($sql);
 $pdo = db_connect();
 try {
     $stmt = $pdo->prepare('SELECT * FROM books');
@@ -45,7 +42,7 @@ try {
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
 			<tr>
 				<td><?= h($row['title']); ?></td>
-				<td><?= h($row['date']); ?></td>
+				<td><?= date('Y/m/d', strtotime($row['date'])); ?></td>
 				<td><?= h($row['stock']); ?></td>
 				<td><button type="button"
 						onclick="location.href='delete_book.php?id=<?php echo $row['id']; ?>'"
