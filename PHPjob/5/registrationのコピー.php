@@ -20,6 +20,11 @@ if (!empty($_POST['title']) && !empty($_POST["date"]) && $_POST["stock"] !== '�
     } catch (PDOException $e) {
         exit('DBエラー' . $e->getMessage());
     }
+    //リロード対策
+    // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //     header('Location:registration.php');
+    //     exit;
+    //     }
 } else {
     if (empty($_POST['title'])) {
         $resultMsg = 'タイトルを入力してください';

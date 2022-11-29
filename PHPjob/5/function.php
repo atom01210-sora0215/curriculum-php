@@ -1,25 +1,6 @@
 <?php
 require_once('db_connect.php');
 
-class getData
-{
-    public $pdo;
-    public $data;
-
-    /*select all*/
-    public function selectData($sql)
-    {
-        $pdo = db_connect();
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute();
-            return $stmt;
-        } catch (PDOException $e) {
-            exit('DBエラー' . $e->getMessage());
-        }
-    }
-}
-
 /**
  * $_SESSION["user_name"]が空だった場合、ログインページにリダイレクトする
  * @return void
@@ -45,36 +26,6 @@ function redirect_main_unless_parameter($param)
     if (empty($param)) {
         header("Location: main.php");
         exit;
-    }
-}
-
-/**
- * 引数で与えられたidでpostsテーブルを検索する
- * もし対象のレコードがなければmain.phpに遷移させる
- * @param integer $id
- * @return array
- */
-function findBookId($id)
-{
-    // PDOのインスタンスを生成
-    $pdo = db_connect();
-    try {
-        // SQL文の準備
-        $sql = "SELECT * FROM books WHERE id = :id";
-        // プリペアドステートメントの作成
-        $stmt = $pdo->prepare($sql);
-        // idのバインド
-        $stmt->bindParam('id', $id);
-        // 実行
-        $stmt->execute();
-    } catch (PDOException $e) {
-        exit('DBエラー' . $e->getMessage());
-    }
-    // 結果が1行取得できたら
-    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        return $row;
-    } else {
-        redirect_main_unless_parameter($row);
     }
 }
 

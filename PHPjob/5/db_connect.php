@@ -21,27 +21,3 @@ function db_connect()
     }
 }
 
-/*
-class Connect {
-    const DB_DATABASE = 'BookInv';
-    const DB_HOST = 'localhost';
-    const DB_USERNAME = 'root';
-    const DB_PASSWORD = 'root';
-    // const PDO_DSN = 'mysql:host=localhost;charset=utf8;dbname='.DB_DATABASE;
-
-    private $dbh;
-
-    //PDOクラス化
-    public function __construct(){
-        $dsn = "mysql:host=" .self::DB_HOST.";dbname=".self::DB_DATABASE.";charset=utf8";
-        try{
-            $this->dbh = new PDO($dsn, self::DB_USERNAME, self::DB_PASSWORD);
-            echo 'DBと接続しました';
-        } catch(PDOException $e) {
-            exit('DBエラー' . $e->getMessage());
-        }
-        $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $this->dbh;
-    }
-}
-*/
