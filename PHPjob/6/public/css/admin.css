@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+/*-----login----------------*/
+body {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    color: #3e3c3c;
+}
+
+.navbar-laravel {
+    background-color: #fff;
+}
+
+.navbar-brand {
+    color: rgb(66, 64, 64) !important;
+}
+
+.nav-link {
+    color: rgb(66, 64, 64) !important;
+}
+
+.table-dark {
+    color: #000;
+}
+
+.list-group-item {
+    border-color: #000;
+}
+
+.login-box {
+    background-color: #fff;
+    border: none;
+}
+
+.login-header {
+    padding-left: .5em;
+}
+
+.login-formW {
+    width: 350px;
+}
+
+.login-formB .offset-md-4 {
+    margin: 0 !important;
+}
+
+.container {
+    width: 80% !important;
+}
+
+
+/*-----post----------------*/
+.post-container {
+    width: 400px;
+    margin: 0 auto;
+}
+.post-card {
+    border: solid 1px #cac8c8;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.post-title {
+    border-bottom: solid 1px #cac8c8;
+    padding: 20px 0 10px 20px;
+}
+.post-box {
+    height: 120px;
+    width: 100%;
+    margin-right: 0;
+}
+#tweet-txt {
+    width: 90%;
+    margin: 5% auto;
+}
+#tweet-btn {
+    width: 100px;
+    height: 35px;
+    margin-left: 70%;
+    background:#cac8c8;
+    color: #3e3c3c;
+}
+.post-list {
+    border: solid 1px #cac8c8;
+    width: 100%;
+}
+.post-tableL {
+    display:table-cell;
+    vertical-align:middle;
+    padding-left: 20px !important;
+}
+.post-tableR {
+    display:table-cell;
+    vertical-align:middle;
+    padding-right: 20px !important;
+}
+.post-up, .post-down {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    width: 100%;
+    padding: 15px 5px;
+    height: 50px
+}
+.post-delete {
+    font-weight: 700;
+}
