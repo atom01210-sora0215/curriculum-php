@@ -14,21 +14,21 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name'=>'たきじい',
             'email'=>'takiji@test.com',
-            'password'=>'takiji',
+            'password'=>bcrypt('takiji'),
             'updated_at'=>date('Y-m-d H:i:s'),
         ]);
 
         DB::table('users')->insert([
             'name'=>'そうしのまくら',
             'email'=>'makura@test.com',
-            'password'=>'makura',
+            'password'=>bcrypt('makura'),
             'updated_at'=>date('Y-m-d H:i:s'),
         ]);
 
         DB::table('users')->insert([
             'name'=>'あくたの龍ちゃん',
             'email'=>'akuta@test.com',
-            'password'=>'akuta',
+            'password'=>bcrypt('akuta'),
             'updated_at'=>date('Y-m-d H:i:s'),
         ]);
     }

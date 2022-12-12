@@ -37,4 +37,11 @@ class PostController extends Controller
         $post = Post::orderBy('created_at', 'desc')->get();
         return view('post.create', ['posts'=>$post, 'users'=>$user]);
     }
+    
+    public function delete(Request $request)
+    {
+        $post = Post::find($request->id);
+        $post->delete();
+        return redirect('post/create');
+    }
 }

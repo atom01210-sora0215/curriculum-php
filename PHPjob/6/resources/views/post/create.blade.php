@@ -26,18 +26,22 @@
             </div><!-- /.post-card -->
         </form>
         @foreach($posts as $post)
+        <table class="post-list">
             @foreach($users as $user)
-                <table class="post-list">
+                @if($user->id == $post->user_id)
                     <tr class="post-up">
                         <th class="post-tableL">{{ $user->name }}</th>
                         <th class="post-tableR">{{ $post->created_at }}</th>
                     </tr>
                     <tr class="post-down">
                         <td class="post-tableL">{{ $post->body }}</td>
-                        <td class="post-tableR post-delete"><a href="" style="color: red">削除</a></td>
+                        @if(Auth::id() == $post->user_id)
+                            <td class="post-tableR post-delete"><a href="{{ action('PostController@delete', ['id'=>$post->id]) }}" style="color: red">削除</a></td>
+                        @endif
                     </tr>
-                </table>
+                @endif
             @endforeach
+        </table>
         @endforeach
     </div><!-- /.post-container -->
 @endsection
