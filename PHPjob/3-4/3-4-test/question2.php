@@ -9,22 +9,22 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-	<?php
-        //POST送信で送られてきた名前を受け取って変数を作成
-        $name = $_POST['name'];
-        
-	//①画像を参考に問題文の選択肢の配列を作成してください。
-	$question1_arry = ["80", "22", "20", "21"];
-	$question2_arry = ["PHP", "Python", "JAVA", "HTML"];
-	$question3_arry = ["join", "select", "insert", "update"];
-        
-	//② ①で作成した、配列から正解の選択肢の変数を作成してください
-	$correctAns1 = $question1_arry[0];
-	$correctAns2 = $question2_arry[3];
-	$correctAns3 = $question3_arry[1];
-	?>
+<?php
+			//POST送信で送られてきた名前を受け取って変数を作成
+			$name = $_POST['name'];
+			
+//①画像を参考に問題文の選択肢の配列を作成してください。
+$question1_arry = ["80", "22", "20", "21"];
+$question2_arry = ["PHP", "Python", "JAVA", "HTML"];
+$question3_arry = ["join", "select", "insert", "update"];
+			
+//② ①で作成した、配列から正解の選択肢の変数を作成してください
+$correctAns1 = $question1_arry[0];
+$correctAns2 = $question2_arry[3];
+$correctAns3 = $question3_arry[1];
+?>
 
+<body>
 	<!--フォームの作成 通信はPOST通信で-->
 	<!--③ 問題のradioボタンを「foreach」を使って作成する-->
 	<p>お疲れ様です<?php echo $name; ?>さん</p>

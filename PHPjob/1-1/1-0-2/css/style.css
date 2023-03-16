@@ -49,6 +49,7 @@
 .footer {
   height: 100px;
   background-color: #d98d30;
+  /* clear: both; */
 }
 
 .clearfix::after {
