@@ -11,8 +11,8 @@ if(!empty($_POST)) {
     }
     if (!empty($_POST['name']) && !empty($_POST['pass'])) {
         $resultMsg = null;
-        $name = $_POST['name'];
-        $pass = $_POST['pass'];
+        $name = htmlspecialchars($_POST['name'],ENT_QUOTES);
+        $pass = htmlspecialchars($_POST['pass'],ENT_QUOTES);
         $pdo = db_connect();
         try {
             $sql = "SELECT * FROM users WHERE name = :name";
@@ -21,7 +21,9 @@ if(!empty($_POST)) {
             $stmt->execute();
         } catch (PDOException $e) {
             exit('DBエラー' . $e->getMessage());
+            die();
         }
+
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             if(password_verify($pass, $row['password'])) {
                 $_SESSION['user_id'] = $row['id'];
@@ -53,10 +55,12 @@ if(!empty($_POST)) {
 	<main class="main">
 		<div class=topWrap>
 			<h2>ログイン画面</h2>
-			<button type="button" onclick="location.href='signUp.php'" class="baseBtn newBtn">新規ユーザー登録</button>
+			<button type="button" onclick="location.href='register.php'" class="baseBtn newBtn">新規ユーザー登録</button>
 		</div>
 		<?php if(!empty($resultMsg)): ?>
-		<p><?php echo $resultMsg; ?></p>
+		<!-- <p><?php echo '<span style="color:red">'.$resultMsg.'</span>'; ?></p> -->
+        <?php echo '<font color="red">'.$resultMsg.'</font>'; ?> 
+
 		<?php endif; ?>
 		<form action="" method="POST">
 			<input type="text" name="name" size="15" placeholder="ユーザー名" class="formTxt"><br>

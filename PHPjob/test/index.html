@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="boxWrap">
+      <a href="#" class="boxBtn"></a>
+    </div>
+    <style>
+      .boxWrap {
+        margin: 10px;
+        width: 180px;
+        height: 180px;
+      }
+      .boxWrap:hover {
+        cursor: pointer;
+      }
+      .boxBtn {
+        display: block;
+        height: 100%;
+        background: blue;
+      }
+      .boxBtn.isActive {
+        background: red;
+      }
+    </style>
+
+    <script>
+      let boxBtn = document.getElementsByClassName("boxBtn");
+      console.log(boxBtn);
+      for (i = 0; i < boxBtn.length; i++) {
+        boxBtn[i].addEventListener("click", function () {
+          this.classList.toggle("isActive");
+        });
+      }
+    </script>
+  </body>
+</html>

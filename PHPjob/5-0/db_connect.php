@@ -1,6 +1,4 @@
 <?php
-
-
 // 定数定義：DB名
 define('DB_DATABASE', 'YIGroupBlog');
 // 定数定義：MySQLのユーザー名

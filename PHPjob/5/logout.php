@@ -21,6 +21,7 @@ session_destroy();
 			<h2>ログアウト画面</h2>
 		</div>
 		<p>ログアウトしました</p>
+		<a href="login.php">ログイン画面に戻る</a>
 	</main>
 </body>
 

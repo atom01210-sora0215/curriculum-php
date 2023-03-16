@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+}
+
+
+/*-- ハンバーガーメニュー --*/
+/*3本線の親要素*/
+.nav_toggle {
+    display: block;
+    position: relative;
+    width: 1.75rem;
+    height: 1.5rem;
+    top: 1em;   /*表示位置調整*/
+    left: 1em;
+}
+/*クリック前ボタン*/
+.nav_toggle i {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    transition: transform .5s, opacity .5s;
+}
+.nav_toggle i:nth-child(1){
+    top: 0;
+}
+.nav_toggle i:nth-child(2){
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.nav_toggle i:nth-child(3){
+    bottom: 0;
+}
+/*クリック後ボタン.show追加*/
+.nav_toggle.show i:nth-child(1) {
+    transform: translateY(10px) rotate(-45deg);
+}
+.nav_toggle.show i:nth-child(2) {
+    opacity: 0;
+}
+.nav_toggle.show i:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
+}
+/*クリック前メニューリスト*/
+.nav {
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility .5s;
+}
+/*クリック後メニューリスト.show追加*/
+.nav.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
+
+/*-- 自動ドア --*/
+.left{
+    width: 50%;
+    height: 100vh;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    transition: all 2s ease;
+}
+
+.right{
+    width: 50%;
+    height: 100vh;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    transition: all 2s ease;
+}
+
+.Left { left: 0; z-index:100;}
+.Right { right: 0; z-index:101;}
+
+.click{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}

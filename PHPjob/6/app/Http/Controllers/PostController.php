@@ -9,15 +9,15 @@ use App\User;
 
 class PostController extends Controller
 {
-    public function add()
-    {
-        //web.php, post/create, @add
-        return view('post.create');
-    }
+    // public function add()
+    // {
+    //     //web.php, post/create, @add
+    //     return view('post.create');
+    // }
 
     public function create(Request $request)
     {
-        // Varidationを行う
+        // Validationを行う
         $this->validate($request, Post::$rules);
 
         $post = new Post;

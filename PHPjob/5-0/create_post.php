@@ -9,25 +9,25 @@ require_once('function.php');
 check_user_logged_in();
 
 // 提出ボタンが押された場合
-if (isset($_POST["post"])) {
+if (!empty($_POST)) {
     // titleとcontentの入力チェック
-    if (!empty($_POST["title"])&& !empty($_POST["content"])) {
+    if (empty($_POST["title"])) {
         echo 'タイトルが未入力です。';
-    } elseif (!empty($_POST["content"])) {
+    } elseif (empty($_POST["content"])) {
         echo 'コンテンツが未入力です。';
     }
 
-    if (isset($_POST["title"])&& isset($_POST["content"])) {
+    if (!empty($_POST["title"]) && !empty($_POST["content"])) {
         // 入力したtitleとcontentを格納
-        $title = $_POST["title"];
-        $content = $_POST["content"];
+        $title = htmlspecialchars($_POST["title"], ENT_QUOTES);
+        $content = htmlspecialchars($_POST["content"], ENT_QUOTES);
 
         // PDOのインスタンスを取得
         $pdo = db_connect();
 
         try {
             // SQL文の準備
-            $sql = "insert into posts (title, content) values (:title, :content)";
+            $sql = "INSERT INTO posts (title, content) values (:title, :content)";
             // プリペアドステートメントの準備
             $stmt = $pdo->prepare($sql);
             // タイトルをバインド

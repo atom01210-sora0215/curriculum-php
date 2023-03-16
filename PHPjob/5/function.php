@@ -1,6 +1,4 @@
 <?php
-require_once('db_connect.php');
-
 /**
  * $_SESSION["user_name"]が空だった場合、ログインページにリダイレクトする
  * @return void

@@ -46,6 +46,9 @@ try {
 			<td>タイトル</td>
 			<td>本文</td>
 			<td>投稿日</td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
 		<?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
 		<tr>
@@ -54,6 +57,15 @@ try {
 			<td><?php echo $row['content']; ?>
 			</td>
 			<td><?php echo $row['time']; ?></td>
+			<td><a
+					href="detail_post.php?id=<?php echo $row['id']; ?>">詳細</a>
+			</td>
+			<td><a
+					href="edit_post.php?id=<?php echo $row['id']; ?>">編集</a>
+			</td>
+			<td><a
+					href="delete_post.php?id=<?php echo $row['id']; ?>">削除</a>
+			</td>
 		</tr>
 		<?php } ?>
 	</table>

@@ -1,0 +1,161 @@
+.container {
+  width: 400px;
+  height: 450px;
+  position: relative;
+}
+
+@media screen and (max-width: 479px) {
+  .container {
+    width: 200px;
+    /* height: fit-content; */
+    /* position: initial; */
+  }
+}
+
+.bule {
+  width: 400px;
+  height: 100px;
+  background-color: #141f40;
+  /* position: relative; */
+}
+
+@media screen and (max-width: 479px) {
+  .bule {
+    width: 200px;
+    height: 200px;
+    background-color: #141f40;
+  }
+}
+
+.white {
+  width: 160px;
+  height: 60px;
+  background-color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@media screen and (max-width: 479px) {
+  .white {
+    width: 60px;
+    height: 160px;
+    background-color: #fff;
+    /* position: absolute; */
+    top: 20px;
+    right: 70px;
+  }
+}
+
+.red {
+  width: 40px;
+  height: 40px;
+  background-color: #a9004b;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.red:nth-child(2) {
+  right: 60px;
+}
+
+@media screen and (max-width: 479px) {
+  .red:nth-child(2) {
+    top: 60px;
+    right: 10px;
+  }
+}
+
+.red:nth-child(3) {
+  right: 110px;
+}
+
+@media screen and (max-width: 479px) {
+  .red:nth-child(3) {
+    top: 110px;
+    right: 10px;
+  }
+}
+
+.left {
+  width: 150px;
+  height: 250px;
+  background-color: #80bfa8;
+}
+
+@media screen and (max-width: 479px) {
+  .left {
+    width: 200px;
+    height: 100px;
+  }
+}
+
+.brown {
+  width: 250px;
+  height: 250px;
+  background-color: #8c2727;
+  position: absolute;
+  right: 0px;
+  top: 100px;
+}
+
+@media screen and (max-width: 479px) {
+  .brown {
+    width: 200px;
+    height: 180px;
+    position: relative;
+    top: initial;
+  }
+}
+
+.orange {
+  width: 140px;
+  height: 40px;
+  background-color: #ff863f;
+  border: #fff solid 5px;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+@media screen and (max-width: 479px) {
+  .orange {
+    box-sizing: border-box;
+    width: 140px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+  }
+}
+
+.orange:nth-child(2) {
+  top: 100px;
+}
+
+@media screen and (max-width: 479px) {
+  .orange:nth-child(2) {
+    top: 70px;
+  }
+}
+
+.orange:nth-child(3) {
+  top: 160px;
+}
+@media screen and (max-width: 479px) {
+  .orange:nth-child(3) {
+    top: 120px;
+  }
+}
+
+.footer {
+  width: 400px;
+  height: 100px;
+  background-color: #d98d30;
+}
+@media screen and (max-width: 479px) {
+  .footer {
+    width: 200px;
+  }
+}

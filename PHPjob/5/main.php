@@ -29,7 +29,7 @@ try {
 	<main class="list">
 		<h2>在庫一覧画面</h2>
 		<div class=mainWrap>
-			<button type="button" onclick="location.href='registration.php'" class="baseBtn registBtn">新規登録</button>
+			<button type="button" onclick="location.href='create_book.php'" class="baseBtn createBtn">新規登録</button>
 			<button type="button" onclick="location.href='logout.php'" class="baseBtn logoutBtn">ログアウト</button>
 		</div>
 		<table>
@@ -42,11 +42,13 @@ try {
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {?>
 			<tr>
 				<td><?= h($row['title']); ?></td>
-				<td><?= date('Y/m/d', strtotime($row['date'])); ?></td>
+				<td><?php echo $row['date']; ?></td>
+				<!-- <td><?= date('Y/m/d', strtotime($row['date'])); ?></td> -->
 				<td><?= h($row['stock']); ?></td>
-				<td><button type="button"
+				<!-- <td><button type="button"
 						onclick="location.href='delete_book.php?id=<?php echo $row['id']; ?>'"
-						class="baseBtn dltBtn">削除</button></td>
+						class="baseBtn dltBtn">削除</button></td> -->
+				<td><button class="baseBtn dltBtn"><a href="delete_book.php?id=<?php echo $row['id'] ?>">削除</a></button></td>
 			</tr>
             <?php } ?>
 		</table>

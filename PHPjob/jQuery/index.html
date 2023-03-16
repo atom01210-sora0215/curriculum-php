@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- プルダウンメニュー -->
+    <nav>
+        <ul class="dropdwn">
+            <li class="hover">
+            ホバーしてみよう
+            <ul class="dropdwn_menu">
+                <li><a href="#">名前</a></li>
+                <li><a href="#">性別</a></li>
+                <li><a href="#">住所</a></li>
+                <li><a href="#">電話番号</a></li>
+            </ul>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        $(".dropdwn li").hover(
+            function () {
+            $(".dropdwn_menu:not(:animated)", this).slideDown();
+            },
+            function () {
+            $(".dropdwn_menu", this).slideUp();
+            }
+        );
+    </script>
+
+
+
+    <!-- thisの扱い方 -->
+    <nav>
+        <ul>
+        <li>好き</li>
+        <li>まぁまぁ好き</li>
+        <li>どちらでもない</li>
+        <li>まぁまぁ嫌い</li>
+        <li>嫌い</li>
+        </ul>
+    </nav>
+    <style>
+        nav {margin-top: 200px;}
+        li {background: rgb(238, 191, 191);}
+        .color {color: red;}
+    </style>
+    <script type="text/javascript">
+        $(function () {
+        $("li").click(function () {
+            $(this).addClass("color");
+        });
+        });
+    </script>
+
+</body>
+</html>

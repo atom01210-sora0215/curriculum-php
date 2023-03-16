@@ -1,14 +1,16 @@
 <?php
-session_start();
-require_once("pdo.php");
 require_once("getData.php");
-$pdo = connect();
 
+try {
 // getDataクラスをインスタンス化
 $data = new getData();
-// getData内のgetUserData関数を実行し、変数に代入
+// getData内のgetUserData関数を実行し、実行結果を変数に代入 →変数をforeachで繰り返し、keyを指定すると値が取得できる
 $user_data = $data->getUserData();
 $post_data = $data->getPostData();
+$fullname = $user_data['last_name'] . $user_data['first_name'];
+} catch (PDOException $e) {
+	die('取得できませんでした。'. $error->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +29,7 @@ $post_data = $data->getPostData();
 		<h1><img src="1599315827_logo.png" alt=""></h1>
 		<div class="headerWrap">
 			<p class="greeting">
-				ようこそ<?= h(' '.$user_data['last_name'].$user_data['first_name'].' '); ?>さん
+				ようこそ<?= h(' '.$fullname.' '); ?>さん
 			</p>
 			<p class="logindate">
 				最終ログイン日：<?= $user_data['last_login']; ?>
@@ -43,21 +45,20 @@ $post_data = $data->getPostData();
 				<th>本文</th>
 				<th>投稿日</th>
 			</tr>
+			<?php foreach ($post_data as $row) { ?>
 			<tr>
-				<?php while ($row = $post_data->fetch(PDO::FETCH_ASSOC)) { ?>
-				<td><?= h($row['id']); ?></td>
-				<td><?= h($row['title']); ?></td>
-				<td><?php switch ($row['category_no']) {
-				    case '1': print '食事';
-				        break;
-				    case '2': print '旅行';
-				        break;
-				    default: echo 'その他';
+				<td><?php echo h($row['id']); ?></td>
+				<td><?php echo h($row['title']); ?></td>
+				<td><?php
+				if ($row['category_no'] == 1) {
+					echo '食事';
+				} elseif ($row['category_no'] == 2) {
+					echo '旅行';
+				} else {
+					echo 'その他';
 				}?></td>
-				<td><?= h($row['comment']); ?>
-				</td>
-				<td><?= h($row['created']); ?>
-				</td>
+				<td><?php echo h($row['comment']); ?></td>
+				<td><?php echo h($row['created']); ?></td>
 			</tr>
 			<?php }?>
 		</table>

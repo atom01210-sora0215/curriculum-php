@@ -1,29 +1,14 @@
-<html>
 <?php
-    $num = 1;
-    while($num <= 100) {
-        if($num % 3 == 0 && $num % 5 == 0) {
-            echo 'FizzBuzz!!' . '<br>';
-            $num++;
-        } elseif ($num % 3 == 0) {
-            echo 'Fizz!' . '<br>';
-            $num++;
-        } elseif ($num % 5 == 0) {
-            echo 'Buzz!' . '<br>';
-            $num++;
-        } else {
-            echo $num . '<br>';
-            $num++;
+    for ($i = 1; $i <= 100; $i++){
+        
+        if ($i % 3 === 0 && $i % 5 === 0){
+            echo 'FizzBuzz!!';
+        }else if ($i % 3 === 0){
+            echo 'Fizz!';
+        }else if ($i % 5 === 0){
+            echo 'Bizz!';
+        }else{
+            echo $i;
         }
+        echo '<br>';
     }
-
-?>
-
-
-
-
-
-
-
-
-</html>

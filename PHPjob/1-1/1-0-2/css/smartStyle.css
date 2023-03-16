@@ -1,0 +1,42 @@
+@media (max-width: 767px) {
+  .header,
+  .items,
+  .footer {
+    width: 300px;
+  }
+  .item1 {
+    width: 100px;
+  }
+  .item2 {
+    width: 75px;
+  }
+  .item3,
+  .item4 {
+    width: 125px;
+  }
+  .item5 {
+    width: 200px;
+  }
+}
+@media (max-width: 479px) {
+  .left,
+  .right {
+    float: none;
+  }
+  .header,
+  .items,
+  .footer {
+    width: 150px;
+  }
+  .item1,
+  .item2 {
+    height: 100px;
+  }
+  .item1,
+  .item2,
+  .item3,
+  .item4,
+  .item5 {
+    width: 150px;
+  }
+}

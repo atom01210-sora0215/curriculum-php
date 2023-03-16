@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input name="check_type" type="checkbox" onclick="changeCell(this);">
+    <table border="1">
+        <tr>
+        <th>あああ</th>
+        <th>いいい</th>
+        <th id="noneLine">ううう</th>
+        </tr>
+        <tr>
+        <td>aaa</td>
+        <td>bbb</td>
+        <td>ccc</td>
+        </tr>
+        </table>
+
+    <script>
+        // Javascript
+function changeCell(obj){
+ var CELL = document.getElementById("noneLine");
+ var TABLE = CELL.parentNode.parentNode.parentNode;
+ for(var i=0;TABLE.rows[i];i++) {
+  TABLE.rows[i].cells[CELL.cellIndex].style.visibility =
+  (obj.checked)?'hidden':'';
+ }
+}
+
+
+    </script>
+</body>
+</html>

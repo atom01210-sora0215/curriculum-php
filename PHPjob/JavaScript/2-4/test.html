@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+<body>
+    <!-- <label for="input1">名前:</label>
+    <input type="text" id="input1" />
+    <br />
+    <label for="input2">名前カナ:</label>
+    <input type="text" id="input2" />
+    <br />
+    <label for="input3">郵便番号:</label>
+    <input type="text" id="input3" />
+    <br />
+    <label for="input4">電話番号:</label>
+    <input type="text" id="input4" />
+    <button id="submit">Submit</button>
+    <ul id="list">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <button id="add">Add Rows</button>
+    <script>
+      const submitBtn = document.getElementById("submit");
+      const input1 = document.getElementById("input1");
+      const input2 = document.getElementById("input2");
+      const input3 = document.getElementById("input3");
+      const input4 = document.getElementById("input4");
+      const list = document.getElementById("list");
+      const addBtn = document.getElementById("add");
+
+      submitBtn.addEventListener("click", () => {
+        const value1 = input1.value;
+        const value2 = input2.value;
+        const value3 = input3.value;
+        const value4 = input4.value;
+
+        const liList = list.getElementsByTagName("li");
+        liList[0].textContent = value1;
+        liList[1].textContent = value2;
+        liList[2].textContent = value3;
+        liList[3].textContent = value4;
+      });
+
+      addBtn.addEventListener("click", () => {
+        for (let i = 0; i < 4; i++) {
+          const newLi = document.createElement("li");
+          list.appendChild(newLi);
+        }
+      });
+    </script> -->
+
+
+
+
+
+
+
+
+<label for="input1">名前:</label>
+<input type="text" id="input1" />
+<br />
+<label for="input2">名前カナ:</label>
+<input type="text" id="input2" />
+<br />
+<label for="input3">郵便番号:</label>
+<input type="text" id="input3" />
+<br />
+<label for="input4">電話番号:</label>
+<input type="text" id="input4" />
+<br />
+<button id="submit-btn">Submit</button>
+<br />
+<br />
+<ul id="output-list"></ul>
+
+<script>
+const input1 = document.getElementById("input1");
+const input2 = document.getElementById("input2");
+const input3 = document.getElementById("input3");
+const input4 = document.getElementById("input4");
+const submitBtn = document.getElementById("submit-btn");
+const outputList = document.getElementById("output-list");
+
+submitBtn.addEventListener("click", () => {
+  const inputs = [input1.value, input2.value, input3.value, input4.value];
+  outputList.innerHTML = "";
+  inputs.forEach((input) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = input;
+    outputList.appendChild(listItem);
+  });
+});
+</script>
+
+
+
+
+
+    <!-- <label for="input1">名前:</label>
+    <input type="text" id="input1" />
+    <br />
+    <label for="input2">名前カナ:</label>
+    <input type="text" id="input2" />
+    <br />
+    <label for="input3">郵便番号:</label>
+    <input type="text" id="input3" />
+    <br />
+    <label for="input4">電話番号:</label>
+    <input type="text" id="input4" />
+    <br />
+    <button id="submit-btn">Submit</button>
+    <br />
+    <br />
+    <label for="output-field">Output:</label>
+    <textarea id="output-field" cols="50" rows="10"></textarea>
+
+    <script>
+      const input1 = document.getElementById("input1");
+      const input2 = document.getElementById("input2");
+      const input3 = document.getElementById("input3");
+      const input4 = document.getElementById("input4");
+      const submitBtn = document.getElementById("submit-btn");
+      const outputField = document.getElementById("output-field");
+
+      submitBtn.addEventListener("click", () => {
+        const inputs = [input1.value, input2.value, input3.value, input4.value];
+        outputField.value = inputs.join("\n");
+      });
+    </script> -->
+
+    <!-- <input type="button" value="クリック" id="createBtn" />
+    <ul>
+      <li>item</li>
+      <li>item</li>
+    </ul>
+    <button class="button" name="send" type="button" value="test">
+      ボタン
+    </button>
+    <section>
+      <label for="">名前：<input type="text" /></label>
+      <label for="">名前カナ：<input type="text" /></label>
+      <label for="">郵便番号：<input type="text" /></label>
+      <label for="">電話番号：<input type="text" /></label>
+    </section>
+
+    <script>
+      document
+        .querySelector("#createBtn")
+        .addEventListener("click", function () {
+          let item = document.createElement("li");
+          item.textContent = "item";
+
+          let ul = document.querySelector("ul");
+          ul.appendChild(item);
+        });
+
+      function clickAdd_btn() {
+        const additionBtn = document.getElementById("additionBtn");
+        if (additionBtn.style.display == "block") {
+          additionBtn.style.display = "none";
+        } else {
+          additionBtn.style.display = "block";
+        }
+      }
+      document.querySelector(".button").addEventListener("click", function () {
+        const newForm = document.createElement("input");
+        newForm.type = "text";
+
+        const newLabel = document.createElement("label");
+        newForm.type = "text";
+
+        const newLabel1 = document.createElement("label");
+        newForm.type = "text";
+
+        newLabel.appendChild(newForm);
+        document.querySelector("div").appendChild(newLabel);
+
+        newLabel1.appendChild(newForm);
+        document.querySelector("div").appendChild(newLabel);
+      });
+    </script> -->
+  </body>
+</html>

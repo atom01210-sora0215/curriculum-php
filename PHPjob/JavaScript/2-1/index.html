@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!--「 ボタンがクリックされたら、文字を変える 」 -->
+    <!-- pタグに、targetというidをつけます。 -->
+    <p id="target">Hello World!</p>
+    
+    <!-- ①onclick属性を使って、クリックされたら「myfunc」という関数を実行するように設定
+    myfuncの処理はmain.js側で書きます。 -->
+    <input type="button" value="クリック！" onclick="myfunc()">
+
+
+    <!--document.getElementsByTagName -->
+    <h1>Hello World!</h1>
+    <p>Let's study JavaScript</p>
+    <h1>こんにちは！</h1>
+    <p>JavaScriptを勉強しましょう</p>
+
+
+    <!--document.getElementsByName、nameで要素を探す-->
+    <div name="box">BOX1</div>
+    <div name="box">BOX2</div>
+    <div name="box">BOX3</div>
+    <div name="elem">BOX4</div>
+
+
+    <!--document.getElementsByClassName、Class名から要素を取得-->
+    <div class="box">BOX1</div>
+    <div class="box">BOX2</div>
+    <div class="box">BOX3</div>
+    <div class="elem">BOX4</div>
+
+
+    <div class="boxWrap">
+        <a href="#" class="boxBtn"></a>
+    </div>
+    <style>
+        .boxWrap {
+            margin: 10px;
+            width: 180px;
+            height: 180px;
+        }
+        .boxWrap:hover {
+            cursor: pointer;
+        }
+        .boxBtn {
+            display: block;
+            height: 100%;
+            background: blue;
+        }
+        .boxBtn.isActive{
+            background: red;
+        }
+    </style>
+
+<div id="box" onclick="imgClick()"></div>
+<script>
+    //問題①：idで要素を取得して、背景色を赤色に変更する処理を記述してください。
+    function imgClick (){
+        let box = document.getElementById('box');
+        box.style.backgroundColor = 'red';
+    }
+</script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

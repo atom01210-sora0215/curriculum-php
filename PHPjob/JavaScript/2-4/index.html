@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="クリック" id="createBtn">
+    <input type="button" value="クリック" onclick="createBtn2()">
+    <ul>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <script src="js/main.js"></script>
+
+
+
+    <!-- 問1：以下の要件を満たすように「追加ボタン」と「削除ボタン」実装してください。-->
+    <input type="text" id="text1" placeholder="入力してください">
+    <input type="button" value="追加" onclick="addText();">
+    <input type="button" value="削除" onclick="deleteText();">
+    <br>
+    <textarea id="area1" cols="50" rows="8" placeholder="ここに出力されます"></textarea>
+    
+    <script>   
+    function addText() {
+        //①入力欄のテキストを取得
+        let inputTxt = document.getElementById('text1').value;
+        //console.log(inputTxt);
+        //②出力欄のテキストエリアを取得
+        let areaTxt = document.getElementById('area1');
+        //③出力欄に入力された文字列を足していく
+        areaTxt.value += inputTxt + '\n';
+    }
+
+    function deleteText() {
+        //④出力欄のテキストを空にする
+        document.getElementById('area1').value = "";
+        //⑤入力欄のテキストを空にする
+        document.getElementById('text1').value = "";
+    }
+    </script>
+</body>
+</html>

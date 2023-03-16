@@ -49,7 +49,7 @@ if (isset($_POST["signUp"])) {
 
 <body>
 	<h1>新規登録</h1>
-	<form action="login.php" method="POST">
+	<form action="" method="POST">
 		user:<br>
 		<input type="text" name="name" id="name">
 		<br>

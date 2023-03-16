@@ -44,6 +44,7 @@ function getName($list)
     $i = 0;
     echo "【Aクラスの名簿】" . '<br>';
     //配列の中の名前を出す。
+    //foreach (array_keys($list) as $key)
     foreach ($list as $key => $member) {
         if ($i < count($list)) {
             echo $key . '<br>';
