@@ -13,6 +13,7 @@
 function db_connect() {
     try {
         $pdo = new PDO(PDO_DSN,DB_USERNAME,DB_PASSWORD);
+        //PDOエラーモードの設定
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         return $pdo;
     } catch(PDOException $e) {
