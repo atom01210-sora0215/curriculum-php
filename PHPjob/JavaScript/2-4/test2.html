@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="textForm">
+      <label for="input1">名前:</label>
+      <input type="text" name="name" />
+      <br />
+      <label for="input2">名前カナ:</label>
+      <input type="text" name="kana" />
+      <br />
+      <label for="input3">郵便番号:</label>
+      <input type="text" name="zip" />
+      <br />
+      <label for="input4">電話番号:</label>
+      <input type="text" name="tel" />
+      <br />
+      <button id="submit-btn">Submit</button>
+    </form>
+    <br />
+    <br />
+    <ul id="output-list"></ul>
+
+    <script>
+      const form = document.forms.textForm;
+      const submitBtn = document.getElementById("submit-btn");
+      const outputList = document.getElementById("output-list");
+
+      submitBtn.addEventListener("click", (event) => {
+        event.preventDefault(); // フォームのデフォルトの送信処理をキャンセルする
+
+        const inputs = Array.from(
+          form.querySelectorAll(
+            'input[name="name"], input[name="kana"], input[name="zip"], input[name="tel"]'
+          )
+        );
+        const values = inputs.map((input) => input.value);
+        outputList.innerHTML = "";
+        values.forEach((value) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = value;
+          outputList.appendChild(listItem);
+        });
+      });
+    </script>
+  </body>
+</html>
