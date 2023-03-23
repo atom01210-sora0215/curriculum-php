@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        #btn {
-            height: 100px;
-            width: 100px;
-            background-color: red;
-            border-radius: 50%;
-            color: white;
-            text-align: center;
-            line-height: 100px;
-            cursor: pointer;;
-            font-weight: bold;
-            user-select: none;
-        }
-        #btn:hover {
-            opacity: 0.9;
-        }
+      #btn {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        line-height: 100px;
+        cursor: pointer;
+        font-weight: bold;
+        user-select: none;
+      }
+      #btn:hover {
+        opacity: 0.9;
+      }
     </style>
-</head>
-<body>
-    <!-- <div id="box">BOX</div>
-    <button id="btn1">ボタン</button> -->
-    
+  </head>
+  <body>
+    <!-- <div id="box">BOX</div> -->
+    <button id="btn1">ボタン</button>
+    <br />
+    <br />
     <div id="btn">クリック</div>
     <script>
-    //問1：ボタンを押したら、「大吉」「中吉」「凶」と文字が変わるようなおみくじを作成してください。
-    //btnを取得
-    const btn = document.getElementById('btn');
-    // ボタンがクリックされたら、という処理の始まり
-    btn.addEventListener('click', function() {
-        //①配列で「大吉」「中吉」「凶」を準備
-        let results = ["大吉", "中吉", "凶"];
-        // console.log(results);
-        //②乱数を発生させて、その値を取得（Math.floor：切り下げ）
-        //Math.floor(Math.random() * (max - min)) + min（配列にmaxを含むなら (max - min + 1)）
-        let randnum = Math.floor(Math.random() * 3);
-        // console.log(randnum);
-        //③取得した **btn** の「クリック」という文字を配列の中身の文字にランダムに変化させる
-        btn.textContent = results[randnum];
-    }, false);
+      //問1：ボタンを押したら、「大吉」「中吉」「凶」と文字が変わるようなおみくじを作成してください。
+      //btnを取得
+      const btn = document.getElementById("btn");
+      // ボタンがクリックされたら、という処理の始まり
+      btn.addEventListener(
+        "click",
+        function () {
+          //①配列で「大吉」「中吉」「凶」を準備
+          let results = ["大吉", "中吉", "凶"];
+          // console.log(results);
+          //②乱数を発生させて、その値を取得（Math.floor：切り下げ）
+          //Math.floor(Math.random() * (max - min)) + min（配列にmaxを含むなら (max - min + 1)）
+          let randnum = Math.floor(Math.random() * 3);
+          // console.log(randnum);
+          //③取得した **btn** の「クリック」という文字を配列の中身の文字にランダムに変化させる
+          btn.textContent = results[randnum];
+        },
+        false
+      );
     </script>
-    
+
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

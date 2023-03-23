@@ -1,15 +1,15 @@
 // 変数
-let name = "hoge";
+const myname = "hoge";
 let number = 10;
 let price = 100;
 
-console.log(name);
-console.log("name"); 
+console.log(myname);
+console.log("myname");
 
-name = "池田";
-console.log(name);
-console.log(name + "くん");
-console.log(`${name}くんは${number}月生まれです`);
+const yourname = "池田";
+console.log(yourname);
+console.log(yourname + "くん");
+console.log(`${yourname}くんは${number}月生まれです`);
 
 console.log(number * 3);
 console.log(price * 2);
@@ -39,35 +39,29 @@ console.log(result);
 
 //文字列の結合の例
 //HelloとWorldに空白を入れたいときは、Helloの直後か、Worldの直前にスペースを入れてください
-console.log('Hello ' + 'World');
+console.log("Hello " + "World");
 //変数の結合の例
-let lastName = '田中';
-let firstName = '一郎';
+let lastName = "田中";
+let firstName = "一郎";
 let fullName = lastName + firstName;
 
 console.log(fullName);
 
-
-
-
-
-
 //15」が出力--->条件がtrue
 let A = 15;
 if (A >= 10 && A <= 20) {
-    console.log(A);  
+  console.log(A);
 }
-
 
 let a = 10;
 let b = 15;
 //偶数の条件式
 if (a % 2 === 0) {
-    console.log(a);
+  console.log(a);
 }
 //奇数の条件式
 if (b % 2 !== 0) {
-    console.log(b);
+  console.log(b);
 }
 
 let Price = 100;

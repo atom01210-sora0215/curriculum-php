@@ -1,65 +1,55 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <!-- <div class="box">BOX1</div>
-    <div class="box">BOX2</div>
-    <div id="box">BOX3</div> -->
+  </head>
+  <body>
+    <div>
+      <input type="button" value="ボタン" onClick="changeBtn()" />
+      <p id="p1">ボタンが押されると表示非表示が切り替わります。</p>
+    </div>
+    <script>
+      function changeBtn() {
+        // ①id「p1」の要素を取得
+        let elemP = document.getElementById("p1");
+        // console.log(p1);
 
+        // ②取得したp1に「display:none」が無かったら、「display:none」を付与する。
+        // 取得したp1に「display:none」があったら、「display:block」を付与する。
+        if (elemP.style.display !== "none") {
+          // noneで非表示
+          elemP.style.display = "none";
+        } else {
+          // blockで表示
+          elemP.style.display = "block";
+        }
+      }
+    </script>
 
-    <!-- <div class="box">BOX1</div>
-    <form action="">
-        <div class="box">BOX2</div>
-        <div class="box">BOX3</div>
-        名前：<input type="text" name="name"> <br>
-        年齢：
-        <input type="radio" name="age" value="20"> 20歳以上
-        <input type="radio" name="age" value="30"> 30歳以上
-        <input type="radio" name="age" value="40"> 40歳以上 <br>
-        性別：
-        <input type="radio" name="gender" value="男"> 男
-        <input type="radio" name="gender" value="女"> 女
-    </form> -->
+    <!-- addEventListenerを使用する場合 -->
+    <!-- HTMLのボタン要素 -->
+    <button id="toggleButton">表示/非表示切り替え</button>
 
-    <!-- <form action="">
-        名前：<input type="text" name="name"> <br>
-        年齢：
-        <input type="radio" name="age" value="20"> 20歳以上
-        <input type="radio" name="age" value="30"> 30歳以上
-        <input type="radio" name="age" value="40"> 40歳以上 <br>
-        性別：
-        <input type="radio" name="gender" value="男"> 男
-        <input type="radio" name="gender" value="女"> 女
-    </form> -->
-
-
-
-    <input type="button" value="ボタン" onClick="changeBtn()">
-    <p id="p1">ボタンが押されると表示非表示が切り替わります。</p>
+    <!-- 表示・非表示を切り替える要素 -->
+    <div id="toggleTarget" style="display: block">
+      ここに表示する内容が入ります。
+    </div>
 
     <script>
-        function changeBtn() {
-            // ①id「p1」の要素を取得
-            let p1 = document.getElementById("p1");
-            // console.log(p1);
-            
-            // ②取得したp1に「display:none」が無かったら、「display:none」を付与する。
-            // 取得したp1に「display:none」があったら、「display:block」を付与する。
-            if (p1.style.display!=="none"){
-		        // noneで非表示
-                p1.style.display ="none";
-            }else{
-		        // blockで表示
-                p1.style.display ="block";
-            }
-        }
+      const toggleButton = document.getElementById("toggleButton");
+      const toggleTarget = document.getElementById("toggleTarget");
 
+      toggleButton.addEventListener("click", () => {
+        if (toggleTarget.style.display === "none") {
+          toggleTarget.style.display = "block";
+        } else {
+          toggleTarget.style.display = "none";
+        }
+      });
     </script>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
