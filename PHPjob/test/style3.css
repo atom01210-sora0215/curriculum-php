@@ -1,0 +1,157 @@
+/* * {
+  margin: 0;
+  box-sizing: border-box;
+} */
+
+/* body {
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+} */
+
+/* .wrapper img {
+    width: 400px;
+    height: 450px;
+}
+    */
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header {
+    background-color: #141f40;
+    width: 400px;
+    height: 100px;
+}
+
+.left {
+    width: 150px;
+    height: 250px;
+    background-color: #80bfa8;
+    float: left;
+}
+
+/* 追加 */
+.right-container {
+  width: 250px;
+  height: 250px;
+  float: left;
+}
+
+.rightTopLeft {
+  width: 150px;
+  height: 150px;
+  float: left;
+}
+
+.center-top{
+    width: 150px;
+    height: 50px;
+    background-color: #dbd400;
+    /* float: left; */
+}
+
+.center{
+    /* width: 300px;
+    height: 150px; */
+    width: 150px;
+    height: 100px;
+    background-color: #0093b7;
+}
+
+.center-right {
+    width: 100px;
+    height: 150px;
+    background-color: #ff9e6b;
+    float: left;
+}
+
+.center-bottom {
+    /* width: 400px; */
+    width: 250px;
+    height: 100px;
+    background-color: #8c2727;
+}
+
+.fotter {
+    width: 400px;
+    height: 100px;
+    background-color: #d98d30;
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    width: 300px;
+  }
+  .left {
+    width: 100px;
+  }
+  .rightTopLeft {
+    width: 125px;
+  }
+  .center-top{
+    width: 125px;
+  }
+  .center-right {
+    width: 75px;
+  }
+  .center-bottom {
+    /* width: 300px; */
+    width: 200px;
+  }
+  .fotter {
+    width: 300px;
+  }
+  }
+
+@media screen and (max-width: 479px) {
+    
+    /* body {
+      margin-top: 0px;
+    } */
+    
+  .header {
+    width: 150px;
+    height: 100px;
+          } 
+  .left, .rightTopRight {  
+    width: 150px;
+    height: 100px;
+    flex-direction: left;
+    float: none;
+  } 
+  .center-top{
+    width: 150px;
+    height: 50px;
+    /* float: none; */
+  }
+  .center{
+    width: 150px;
+    height: 100px;
+  }
+
+  .center-right {
+    width: 150px;
+    height: 100px;
+    /* flex-direction: center-right; */
+    /* float: none; */
+  }
+
+  .center-bottom {
+    width: 150px;
+  }
+  
+  .rightTop {
+    display: flex;  
+    flex-wrap:wrap-reverse;
+  }
+
+  .fotter {
+    margin-top: 100px;
+    width: 150px;
+  }
+  
+}
