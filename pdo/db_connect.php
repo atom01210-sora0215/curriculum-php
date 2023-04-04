@@ -1,6 +1,6 @@
 <?php
 // DB名
-define('DB_DATABASE', 'YIGroupBlog');
+define('DB_DATABASE', 'yigroupBlog');
 // MySQLのユーザー名
 define('DB_USERNAME', 'root');
 // MySQLのログインパスワード
